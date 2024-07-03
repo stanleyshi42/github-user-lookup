@@ -5,10 +5,20 @@
     <button (click)="getUser(username)">Search</button>
   </div>
 
+  <div *ngIf="user == null" class="border border-dark m-2 p-2">
+    <div>User Not Found</div>
+  </div>
+
   <div *ngIf="user != null" class="border border-dark m-2 p-2">
     <img src="{{ user.avatar_url }}" style="width: 12rem" />
     <div class="lead fs-2">{{ user.login }}</div>
     <div>{{ user.name }}</div>
     <div>{{ user.bio }}</div>
+    <a
+      href="{{ user.html_url }}"
+      target="_blank"
+      class="btn btn-outline-primary"
+      >GitHub Link</a
+    >
   </div>
 </div>

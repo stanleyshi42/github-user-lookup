@@ -8,16 +8,23 @@ import { GithubService } from './github.service';
 })
 export class AppComponent {
   title = 'github-user-lookup';
-  user: any;
+  user: any = null;
   username = '';
 
   constructor(private service: GithubService) {}
 
   getUser(username: string) {
+    if (username == '') return;
     username = username.trim();
-    this.user = this.service.getUser(username).subscribe((data) => {
-      console.log(data);
-      this.user = data;
-    });
+
+    this.service.getUser(username).subscribe(
+      (data) => {
+        //console.log(data);
+        this.user = data;
+      },
+      (error) => {
+        this.user = null;
+      }
+    );
   }
 }

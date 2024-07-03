@@ -25,11 +25,18 @@
       <div class="">{{ user.email }}</div>
       <div class="">{{ user.bio }}</div>
     </div>
+
     <hr />
     <div class="fs-1">Repositories</div>
     <hr />
+
+    <div *ngIf="repos.length == 0">
+      No Repositories Found
+      <hr />
+    </div>
+
     <div *ngFor="let repo of repos">
-      <div id="repo" class="p-1 rounded">
+      <div id="repo" class="p-2 rounded">
         <a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a>
         <div>{{ repo.description }}</div>
       </div>

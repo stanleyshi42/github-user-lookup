@@ -1,8 +1,14 @@
-<h1>GitHub User Lookup</h1>
-<input type="text" [(ngModel)]="username" />
-<button (click)="getUser(username)">Search</button>
-<div *ngIf="user != null">
-  <p>{{ user.login }}</p>
-  <p>{{ user.id }}</p>
-  <p>{{ user.html_url }}</p>
+<div class="container">
+  <h1 class="text-center">GitHub User Lookup</h1>
+  <div class="text-center">
+    <input type="text" class="text-center" [(ngModel)]="username" />
+    <button (click)="getUser(username)">Search</button>
+  </div>
+
+  <div *ngIf="user != null" class="border border-dark m-2 p-2">
+    <img src="{{ user.avatar_url }}" style="width: 12rem" />
+    <div class="lead fs-2">{{ user.login }}</div>
+    <div>{{ user.name }}</div>
+    <div>{{ user.bio }}</div>
+  </div>
 </div>

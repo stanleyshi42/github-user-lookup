@@ -13,4 +13,8 @@ export class GithubService {
   getUser(username: string): Observable<any> {
     return this.http.get<any>(this.uri + '/users/' + username);
   }
+
+  get(uri: string) {
+    return this.http.get<any>(uri);
+  }
 }

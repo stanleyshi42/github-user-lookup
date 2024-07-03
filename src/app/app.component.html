@@ -5,20 +5,31 @@
     <button (click)="getUser(username)">Search</button>
   </div>
 
-  <div *ngIf="user == null" class="border border-dark m-2 p-2">
+  <div *ngIf="user == null" class="border border-dark m-4 p-4">
     <div>User Not Found</div>
   </div>
 
-  <div *ngIf="user != null" class="border border-dark m-2 p-2">
-    <img src="{{ user.avatar_url }}" style="width: 12rem" />
-    <div class="lead fs-2">{{ user.login }}</div>
-    <div>{{ user.name }}</div>
-    <div>{{ user.bio }}</div>
-    <a
-      href="{{ user.html_url }}"
-      target="_blank"
-      class="btn btn-outline-primary"
-      >GitHub Link</a
-    >
+  <div *ngIf="user != null" class="border border-dark m-4 p-4">
+    <div>
+      <img
+        src="{{ user.avatar_url }}"
+        class="border border-dark"
+        style="width: 12rem"
+      />
+      <div>
+        <a href="{{ user.html_url }}" target="_blank" class="fs-1">{{
+          user.login
+        }}</a>
+      </div>
+      <div class="">{{ user.name }}</div>
+      <div class="">{{ user.bio }}</div>
+    </div>
+    <hr />
+    <div class="fs-1">Repositories</div>
+    <div *ngFor="let repo of repos">
+      <a href="{{ repo.html_url }}" target="_blank">{{
+        repo.name
+      }}</a>
+    </div>
   </div>
 </div>

@@ -15,8 +15,8 @@ export class AppComponent {
   constructor(private service: GithubService) {}
 
   getUser(username: string) {
-    if (username == '') return;
     username = username.trim();
+    if (username == '') return;
 
     this.service.getUser(username).subscribe(
       (data) => {

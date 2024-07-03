@@ -27,10 +27,13 @@
     </div>
     <hr />
     <div class="fs-1">Repositories</div>
+    <hr />
     <div *ngFor="let repo of repos">
-      <a href="{{ repo.html_url }}" target="_blank">{{
-        repo.name
-      }}</a>
+      <div id="repo" class="p-1 rounded">
+        <a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a>
+        <div>{{ repo.description }}</div>
+      </div>
+      <hr />
     </div>
   </div>
 </div>

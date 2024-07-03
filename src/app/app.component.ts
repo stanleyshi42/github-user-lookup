@@ -20,13 +20,11 @@ export class AppComponent {
 
     this.service.getUser(username).subscribe(
       (data) => {
-        //console.log(data);
         this.user = data;
 
-        // Get repos
+        // Get user's repos
         this.service.get(data.repos_url).subscribe((data) => {
           this.repos = data;
-          console.log(this.repos);
         });
       },
       (error) => {
